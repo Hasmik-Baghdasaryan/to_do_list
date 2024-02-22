@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="scripts/app.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="header-title">My ToDo List</h1>
+    </header>
+    <main>
+      <section class="add-todo-section" data-bind-id="toDoListItem">
+        <form class="add-todo-form" action="#">
+          <div>
+            <label for="full-name">Name</label>
+            <input id="full-name" type="text" placeholder="Modelling"
+              data-bind="value: title, valueUpdate: 'afterkeydown'" />
+          </div>
+          <div>
+            <label for="description">Description</label>
+            <input id="description" type="text" placeholder="Build Spain Galeon"
+              data-bind="value: description, valueUpdate: 'afterkeydown'" />
+          </div>
+          <div>
+            <label for="priority">Priority</label>
+            <select data-bind="options: priorityList, value: priority,  optionsCaption: 'Select'"></select>
+          </div>
+          <button class="btn btn--add" data-bind="click: addItem, disable: errors().length">Add</button>
+        </form>
+      </section>
+      <section class="sort-by-section hidden" data-bind-id="sortToDoList"
+        data-bind="css: {'hidden': !toDoList().length}">
+        <label>Sort By</label>
+        <div class="sort-by-actions">
+          <button class="btn btn--sort-by"
+            data-bind="click: toggleSortingType.bind(null, 'priority'),  css: {'active-sort': sortedByPriority} ">Priority</button>
+          <button class="btn btn--sort-by"
+            data-bind="click: toggleSortingType.bind(null, 'name'), disable: toDoList().length < 2, css: {'active-sort': sortedByName}">Name</button>
+        </div>
+      </section>
+      <section class="todo-list-section" data-bind-id="toDo">
+        <table class="todo-table hidden" data-bind="css: {'hidden': !toDoList().length}">
+          <thead>
+            <tr>
+              <th data-bind="text: name">Name</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody data-bind="foreach: toDoList">
+            <tr data-bind="css: {'task-completed': $data.complete()}">
+              <td data-bind="text: name"></td>
+              <td data-bind="text: description"></td>
+              <td data-bind="text: priority"></td>
+              <td>
+                <div class="table-actions">
+                  <button class="btn btn--complete"
+                    data-bind="click: $parent.completeToDoItem, visible: !$data.complete()">Complete</button>
+                  <button class="btn btn--delete" data-bind="click: $parent.deleteToDoItem">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="todo-info hidden" data-bind="css: {'hidden': !toDoList().length}"> Total: <span
+            data-bind="text: totalToDoItems()"></span> Completed: <span data-bind="text: completedItems()"></span></p>
+      </section>
+    </main>
+  </div>
+  <script src="scripts/knockout.js"></script>
+  <script src="scripts//knockout.validation.js"></script>
+  <script src="scripts/knockout.mapping-latest.js"></script>
+  <script src="scripts/validation.js"></script>
+  <script src="scripts/toDoList.js"></script>
+  <script src="scripts/toDoListItem.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,194 @@
+/*
+  Font sizes(px):
+    10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  Spacing system (px):
+    2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 62.5%;
+}
+
+label {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+}
+
+.container {
+  width: 110rem;
+  margin: 0 auto;
+  margin-top: 9.6rem;
+  padding: 1.6rem;
+  border: 1px solid #aaa;
+}
+
+.header-title {
+  font-size: 4.4rem;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 2.4rem;
+}
+
+.add-todo-form {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr;
+  column-gap: 3.2rem;
+  padding: 4.8rem 0;
+}
+.add-todo-form div {
+  position: relative;
+}
+
+.add-todo-form input,
+.add-todo-form select
+ {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  color: inherit;
+  font-size: 1.8rem;
+  border-radius: 3px;
+  border: 1px solid #333;
+  outline: none;
+}
+
+.add-todo-form input.koErrorField,
+.add-todo-form select.koErrorField {
+  border: 1px solid #e03131;
+}
+
+.btn {
+  font-size: 2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 3px;
+  padding: 1rem;
+  color: #fff;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.add-todo-form .btn:hover {
+  background-color: #339af0;
+  cursor: pointer;
+}
+
+.btn--add,
+.btn--add:disabled {
+  background-color: #1c7ed6;
+  align-self: flex-end;
+}
+
+.btn--add:disabled {
+  opacity: 0.4;
+}
+
+.sort-by-actions {
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+
+.btn--sort-by,
+.btn--sort-by:disabled {
+  width: 10rem;
+  font-size: 1.6rem;
+  border: 1px #aaa solid;
+  background-color: #fff;
+  color: #000;
+}
+
+.btn--sort-by:disabled {
+  opacity: 0.4;
+}
+
+.btn--sort-by:first-child {
+  border-right: none;
+  border-top-right-radius: initial;
+  border-bottom-right-radius: initial;
+}
+
+.btn--sort-by:last-child {
+  border-top-left-radius: initial;
+  border-bottom-left-radius: initial;
+}
+
+.active-sort {
+  background-color: #dee2e6;
+}
+
+.todo-table {
+  font-size: 1.6rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.todo-table thead tr {
+  background-color: #868e96;
+  color: #fff;
+}
+
+.todo-table tbody tr {
+  border-bottom: 1px solid #aaa;
+}
+.todo-table th,
+.todo-table td {
+  padding: 1.6rem 2.4rem;
+  text-align: left;
+}
+
+.btn--complete,
+.btn--delete {
+  font-size: 1.4rem;
+  width: 8rem;
+}
+
+.btn--complete {
+  background-color: #37b24d;
+}
+
+.btn--delete {
+  background-color: #e03131;
+}
+
+.btn--complete:hover {
+  background-color: #51cf66;
+}
+
+.btn--delete:hover {
+  background-color: #fa5252;
+}
+
+.todo-info {
+  padding: 1.6rem 0 0 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.task-completed {
+  background-color: #d3f9d8;
+}
+
+.koErrorMessage {
+  color: #e03131;
+  font-size: 1.3rem;
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+}
+
+.hidden {
+  display: none;
+}
